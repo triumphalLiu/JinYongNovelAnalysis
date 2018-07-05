@@ -74,18 +74,23 @@ public class PageRank {
                 String[] tokens = line.split("\t");
                 String pageKey=tokens[0];
                 double pr_init = Double.parseDouble(tokens[1]);
-                String links="";
+                String links;
                 if(tokens.length>=3) {
                     links = tokens[2];
-                    String[] linkPages = links.split("|");
+                    /*name1:a|name2:b|name3:c*/
+                    /*   |  具体特殊含义！！！！得转义*/
+                    String[] linkPages = links.split("\\|");
                     for (String stri : linkPages) {
+                         /*name1:a*/
                         String[] tmp = stri.split(":");
+                        if(tmp.length < 2)
+                            continue;
                         double proportion = Double.parseDouble(tmp[1]);
                         String pr_value = pageKey + "\t" + String.valueOf(pr_init * proportion);
                         context.write(new Text(tmp[0]), new Text(pr_value));
                     }
                     /*在迭代过程中，必须保留原来的链出信息，以维护图的结构添加 "|" 供区分*/
-                    context.write(new Text(pageKey), new Text("|" + links));
+                    context.write(new Text(pageKey), new Text("," + links));
                 }
             }
         }
@@ -98,8 +103,11 @@ public class PageRank {
                 for( Text value:values)
                 {
                     String tmp = value.toString();
-                    if(tmp.charAt(0)=='|'){
-                        links  = "\t" + tmp.substring(1);
+                    if(tmp.charAt(0)==','){
+
+                        links  = "\t" ;
+                        for(int j=1;j<tmp.length();j++)
+                            links+=tmp.charAt(j);
                         continue;
                     }
                     pr += Double.parseDouble(tmp.split("\t")[1]);
