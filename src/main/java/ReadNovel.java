@@ -45,8 +45,9 @@ public class ReadNovel {
                 entryA = iteratorA.next();
                 for(Iterator<Entry<String, Integer>> iteratorB = nameSet.iterator(); iteratorB.hasNext();){
                     entryB = iteratorB.next();
-                    for(int i = 0; i < ((entryA.getValue() < entryB.getValue())?entryA.getValue():entryB.getValue()); ++i)
-                        context.write(new Text(entryA.getKey()), new Text(entryB.getKey()));
+                    if(entryA.getKey().equals(entryB.getKey()) == false)
+                        for(int i = 0; i < ((entryA.getValue() < entryB.getValue())?entryA.getValue():entryB.getValue()); ++i)
+                            context.write(new Text(entryA.getKey()), new Text(entryB.getKey()));
                 }
             }
         }
@@ -93,7 +94,7 @@ public class ReadNovel {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         DistributedCache.addCacheFile(new Path("/data/task2/people_name_list.txt").toUri(), conf);
-        Job job= new Job(conf,"Read Novel");
+        Job job= new Job(conf,"Read Novel, Task 1 2 3");
         job.setJarByClass(ReadNovel.class);
         job.setMapperClass(ReadNovelMapper.class);
         job.setReducerClass(ReadNovelReducer.class);
@@ -102,7 +103,7 @@ public class ReadNovel {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         FileInputFormat.addInputPath(job, new Path("/data/task2/novels"));
-        FileOutputFormat.setOutputPath(job, new Path("/user/2018st04/output"));
+        FileOutputFormat.setOutputPath(job, new Path("/user/2018st04/ReadNovelOutput"));
         job.waitForCompletion(true);
     }
 }
