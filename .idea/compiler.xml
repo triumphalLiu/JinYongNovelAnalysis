@@ -9,5 +9,8 @@
         <module name="JinYongNovelAnalysis" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="JinYongNovelAnalysis" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
