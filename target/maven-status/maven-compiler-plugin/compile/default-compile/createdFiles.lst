@@ -1,0 +1,4 @@
+DataPreprocess\ReadNovel$transferMapper.class
+Main\Main.class
+DataPreprocess\ReadNovel$transferReducer.class
+DataPreprocess\ReadNovel.class
