@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2146c983-1758-46ff-a57b-66fbd8af6f07" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ReadNovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReadNovel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,20 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="57">
+              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -39,14 +31,12 @@
       <file leaf-file-name="ReadNovel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ReadNovel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
-              <caret line="119" column="40" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
+            <state relative-caret-position="470">
+              <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#370#402#0" expanded="true" />
-                <element signature="e#531#560#0" expanded="true" />
-                <element signature="e#1422#1438#0" expanded="true" />
-                <element signature="e#3078#3094#0" expanded="true" />
+                <element signature="e#1544#1561#0" expanded="true" />
+                <element signature="e#2706#2723#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -296,10 +286,10 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" weight="0.32946146" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.32946146" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.32946146" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -338,10 +328,8 @@
           <caret line="113" column="36" lean-forward="true" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#370#402#0" expanded="true" />
-            <element signature="e#531#560#0" expanded="true" />
-            <element signature="e#1422#1438#0" expanded="true" />
-            <element signature="e#3078#3094#0" expanded="true" />
+            <element signature="e#1544#1561#0" expanded="true" />
+            <element signature="e#2706#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -366,10 +354,8 @@
           <caret line="40" column="49" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#370#402#0" expanded="true" />
-            <element signature="e#531#560#0" expanded="true" />
-            <element signature="e#1422#1438#0" expanded="true" />
-            <element signature="e#3078#3094#0" expanded="true" />
+            <element signature="e#1544#1561#0" expanded="true" />
+            <element signature="e#2706#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -394,10 +380,8 @@
           <caret line="40" column="49" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#370#402#0" expanded="true" />
-            <element signature="e#531#560#0" expanded="true" />
-            <element signature="e#1422#1438#0" expanded="true" />
-            <element signature="e#3078#3094#0" expanded="true" />
+            <element signature="e#1544#1561#0" expanded="true" />
+            <element signature="e#2706#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -422,10 +406,8 @@
           <caret line="33" column="33" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#370#402#0" expanded="true" />
-            <element signature="e#531#560#0" expanded="true" />
-            <element signature="e#1422#1438#0" expanded="true" />
-            <element signature="e#3078#3094#0" expanded="true" />
+            <element signature="e#1544#1561#0" expanded="true" />
+            <element signature="e#2706#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -450,10 +432,8 @@
           <caret line="50" column="79" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#370#402#0" expanded="true" />
-            <element signature="e#531#560#0" expanded="true" />
-            <element signature="e#1422#1438#0" expanded="true" />
-            <element signature="e#3078#3094#0" expanded="true" />
+            <element signature="e#1544#1561#0" expanded="true" />
+            <element signature="e#2706#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -468,28 +448,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+        <state relative-caret-position="717">
+          <caret line="60" column="20" lean-forward="true" selection-start-line="60" selection-start-column="20" selection-end-line="64" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="57">
+          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ReadNovel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="119" column="40" selection-start-line="119" selection-start-column="40" selection-end-line="119" selection-end-column="40" />
+        <state relative-caret-position="470">
+          <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#370#402#0" expanded="true" />
-            <element signature="e#531#560#0" expanded="true" />
-            <element signature="e#1422#1438#0" expanded="true" />
-            <element signature="e#3078#3094#0" expanded="true" />
+            <element signature="e#1544#1561#0" expanded="true" />
+            <element signature="e#2706#2723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -511,7 +489,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -559,7 +537,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: org.ansj:ansj_seg:5.0.2</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
