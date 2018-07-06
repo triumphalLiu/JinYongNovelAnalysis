@@ -1,0 +1,47 @@
+代码仓库：
+https://github.com/triumphalLiu/JinYongNovelAnalysis.git
+
+文件说明:
+ReadNovelOutput：任务1-3输出结果，含邻接关系及归一化的权重
+PRData0：PageRank预处理结果
+PRData[1-10]：PageRank迭代结果
+FinalRank：PageRank最终结果
+RawTagPre.txt：标签预处理结果
+RawTag[0-2]：装饰用，没什么用
+RawTag.txt：标签最终结果
+主角列表.txt：字面意思
+edge.csv：边数据的csv文件
+node.csv：点数据的csv文件
+RelationMapOfJinYongNovels.gephi：整合PR、Tag、Relation生成的图文件
+
+环境：
+Java 1.7， Hadoop 2.7.1， IDEA， Maven
+
+主要命令：（jar具体操作参见Main类）
+scp Documents/JinYongNovelAnalysis-1.0-jar-with-dependencies.jar  2018st04@114.212.190.95:/home/2018st04/
+ssh 2018st04@114.212.190.95
+hdfs dfs -rm -r /user/2018st04/*
+hdfs dfs -put tags.txt /user/2018st04/RawTag.txt
+hadoop jar JinYongNovelAnalysis-1.0-jar-with-dependencies.jar
+...
+mkdir output && hdfs dfs -get /user/2018st04/* ./output
+exit
+scp -r 2018st04@114.212.190.95:/home/2018st04/output /home/liu/Desktop/
+
+各环节消耗时间:
+task1-3      17s 10s 7s
+task4 pre    20s 13s 7s
+task4 loop1  17s 7s  10s
+task4 loop2  17s 7s  10s
+task4 loop3  17s 8s  9s
+task4 loop4  27s 17s 8s
+task4 loop5  17s 7s  10s
+task4 loop6  17s 7s  10s
+task4 loop7  18s 8s  10s
+task4 loop8  17s 8s  9s
+task4 loop9  17s 7s  10s
+task4 loop10 16s 7s  9s
+task4 final  14s 6s  8s
+task5 loop1  15s 8s  7s
+task5 loop2  13s 7s  6s
+task5 loop3  13s 7s  6s
