@@ -4,7 +4,6 @@ import java.util.Map.Entry;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.ansj.library.UserDefineLibrary;
 import org.ansj.splitWord.analysis.DicAnalysis;
 import org.ansj.domain.Term;

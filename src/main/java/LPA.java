@@ -14,10 +14,13 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class LPA {
-    private static int max_times = 10;
+    public static int max_times = 10;
     private static HashMap<String,Integer> label_map = new HashMap<String, Integer>();
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
-        for(int times = 0 ; times<max_times ; times++ ){
+        int times = 0;
+        if(args !=  null && args.length > 0)
+            times = Integer.valueOf(args[0]);
+        for( ; times<max_times ; times++ ){
             Configuration conf=new Configuration();
             conf.set("fs.hdfs.impl.disable.cache", "true");
             //HashMap<String, Integer> older = new HashMap<String,Integer>();

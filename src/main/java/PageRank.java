@@ -144,11 +144,24 @@ public class PageRank {
     }
 
     /*进行pagerank操作的入口*/
-    private static final int loopTimes = 10;
+    public static final int loopTimes = 10;
     public static void main(String[] args)throws Exception {
-        CreateGraph.createGraph("/user/2018st04/ReadNovelOutput", "/user/2018st04/PRData0");
-        for(int i = 0; i < loopTimes; i++)
-            PageRankIter.pageRankIter("/user/2018st04/PRData" + i, "/user/2018st04/PRData" + String.valueOf(i + 1));
-        PageRankViewer.pageRankViewer("/user/2018st04/PRData" + loopTimes, "/user/2018st04/FinalRank");
+        if(args != null && args.length > 0){
+            if(args[0].equals("pre"))
+                CreateGraph.createGraph("/user/2018st04/ReadNovelOutput", "/user/2018st04/PRData0");
+            else if(args[0].equals("final"))
+                PageRankViewer.pageRankViewer("/user/2018st04/PRData" + loopTimes, "/user/2018st04/FinalRank");
+            else {
+                for (int i = Integer.valueOf(args[0]); i < loopTimes; i++)
+                    PageRankIter.pageRankIter("/user/2018st04/PRData" + i, "/user/2018st04/PRData" + String.valueOf(i + 1));
+            }
+        }
+        //else Default
+        else {
+            CreateGraph.createGraph("/user/2018st04/ReadNovelOutput", "/user/2018st04/PRData0");
+            for (int i = 0; i < loopTimes; i++)
+                PageRankIter.pageRankIter("/user/2018st04/PRData" + i, "/user/2018st04/PRData" + String.valueOf(i + 1));
+            PageRankViewer.pageRankViewer("/user/2018st04/PRData" + loopTimes, "/user/2018st04/FinalRank");
+        }
     }
 }
