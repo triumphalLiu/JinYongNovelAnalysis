@@ -14,8 +14,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class LPA {
-    public static int max_times = 10;
-    private static HashMap<String,Integer> label_map = new HashMap<String, Integer>();
+    public static int max_times = 3;
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         int times = 0;
         if(args !=  null && args.length > 0)
@@ -24,16 +23,6 @@ public class LPA {
             Configuration conf=new Configuration();
             conf.set("fs.hdfs.impl.disable.cache", "true");
             //HashMap<String, Integer> older = new HashMap<String,Integer>();
-            FileSystem hdfs=FileSystem.get(conf);
-            Scanner temp_sc = new Scanner(hdfs.open(new Path("./RawTag.txt")),"UTF-8");
-            while(temp_sc.hasNextLine()){
-                StringTokenizer temp_st = new StringTokenizer(temp_sc.nextLine());
-                String temp_key = temp_st.nextToken();
-                String temp_value = temp_st.nextToken();
-                label_map.put(temp_key , Integer.parseInt(temp_value));
-            }
-            temp_sc.close();
-
             Job job=new Job(conf,"Task5_LPA");
             job.setJarByClass(LPA.class);
             job.setMapperClass(LPAMapper.class);
@@ -97,14 +86,14 @@ public class LPA {
             }
             if(my_list[temp_max]>0)
                 temp_label2.put(nextWord,temp_max);
+            else
+                temp_label2.put(nextWord, 0);
         }
 
         //用于最后的数据写入
         public void cleanup(Context context) throws IOException{
-            for(int times = 0 ; times<max_times ; times++ ){
-                hdfs.delete(new Path("./RawTag" + times), true);
-            }
-            FSDataOutputStream out_put = hdfs.create(new Path("./RawTagFinal"));
+            hdfs.delete(new Path("./RawTag.txt"));
+            FSDataOutputStream out_put = hdfs.create(new Path("./RawTag.txt"));
             PrintWriter pr1 = new PrintWriter(out_put);
             Set<Entry<String,Integer>>set = temp_label2.entrySet();
             Iterator<Entry<String,Integer>> iterator = set.iterator();
