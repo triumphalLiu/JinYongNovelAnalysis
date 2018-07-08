@@ -45,8 +45,7 @@ public class ReadNovel {
                 for(Iterator<Entry<String, Integer>> iteratorB = nameSet.iterator(); iteratorB.hasNext();){
                     entryB = iteratorB.next();
                     if(entryA.getKey().equals(entryB.getKey()) == false)
-                        for(int i = 0; i < ((entryA.getValue() < entryB.getValue())?entryA.getValue():entryB.getValue()); ++i)
-                            context.write(new Text(entryA.getKey()), new Text(entryB.getKey()));
+                        context.write(new Text(entryA.getKey()), new Text(entryB.getKey()));
                 }
             }
         }

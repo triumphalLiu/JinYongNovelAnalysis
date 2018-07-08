@@ -89,7 +89,7 @@ public class PageRank {
                         String pr_value = pageKey + "\t" + String.valueOf(pr_init * proportion);
                         context.write(new Text(tmp[0]), new Text(pr_value));
                     }
-                    /*在迭代过程中，必须保留原来的链出信息，以维护图的结构添加 "|" 供区分*/
+                    /*在迭代过程中，必须保留原来的链出信息，以维护图的结构添加 "," 供区分*/
                     context.write(new Text(pageKey), new Text("," + links));
                 }
             }
