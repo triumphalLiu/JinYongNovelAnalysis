@@ -21,8 +21,10 @@ public class LPA {
             times = Integer.valueOf(args[0]);
         for( ; times<max_times ; times++ ){
             Configuration conf=new Configuration();
+			//新建一个配置文件储存信息
             conf.set("fs.hdfs.impl.disable.cache", "true");
-            //HashMap<String, Integer> older = new HashMap<String,Integer>();
+			//这是为了将setup中创建的FileSystem实例储存在缓存中，
+			//使得每个节点都能访问同一个实例而不会因为某个节点关闭连接出现异常
             Job job=new Job(conf,"Task5_LPA");
             job.setJarByClass(LPA.class);
             job.setMapperClass(LPAMapper.class);
@@ -30,16 +32,22 @@ public class LPA {
             job.setOutputValueClass(Text.class);
             FileInputFormat.addInputPath(job, new Path("./ReadNovelOutput"));
             FileOutputFormat.setOutputPath(job, new Path("./RawTag" + times));
+			//因为要求输出目录之前不能存在，为了不与之前的输出发生冲突而选择每次输出不同的目录
+			//也可以在结束后删除原目录解决该问题
             job.waitForCompletion(true);
         }
     }
     public static class LPAMapper extends Mapper<Object, Text, Text, Text> {
+		//前两个object ,text 参数表示输入,后两个text,text 表示输出 .
         HashMap<String,Integer> temp_label1 = new HashMap<String, Integer>();
+		//temp_label1用于从文件中读取数据
         HashMap<String,Integer> temp_label2 = new HashMap<String, Integer>();
+		//temp_label2用于储存迭代后的数据并读入文件中
         FileSystem hdfs;
 
         //用于初始化键值对列表
         public void setup(Context context) throws IOException{
+			//context是map任务运行中的一个上下文，包含了整个任务的全部信息，hdfs用于获取这些任务信息
             hdfs=FileSystem.get(context.getConfiguration());
             Scanner open_file = new Scanner(hdfs.open(new Path("./RawTag.txt")),"UTF-8");
             while(open_file.hasNextLine()){
@@ -53,6 +61,7 @@ public class LPA {
 
         //用于map集群计算
         public void map(Object my_key, Text my_value, Context context){
+			//my_key 表示输入的key和value，context用于写入处理后的数据
             StringTokenizer st1 = new StringTokenizer(my_value.toString());
             //st1 表示关系列表中某一项所有关系的内容
             String nextWord = st1.nextToken();
@@ -93,10 +102,13 @@ public class LPA {
         //用于最后的数据写入
         public void cleanup(Context context) throws IOException{
             hdfs.delete(new Path("./RawTag.txt"));
+			//先清除原来文件中的信息
             FSDataOutputStream out_put = hdfs.create(new Path("./RawTag.txt"));
             PrintWriter pr1 = new PrintWriter(out_put);
             Set<Entry<String,Integer>>set = temp_label2.entrySet();
+			//设置映射项，里面有getkey(),getValue()方法
             Iterator<Entry<String,Integer>> iterator = set.iterator();
+			//迭代器
             while(iterator.hasNext()){
                 Entry<String,Integer> entry = iterator.next();
                 pr1.println(new String(entry.getKey()+" "+entry.getValue()));
